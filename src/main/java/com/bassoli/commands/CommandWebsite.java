@@ -24,7 +24,7 @@ public class CommandWebsite {
                         {
                                 "",
                                 "§eAcesse nosso site e adquira suas vantagens:",
-                                "§f→ www.pornhub.com",
+                                "§f→ www.website.com",
                                 ""
                         }
         );

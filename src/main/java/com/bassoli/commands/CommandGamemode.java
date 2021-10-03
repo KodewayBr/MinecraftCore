@@ -24,12 +24,12 @@ public class CommandGamemode {
             player.sendMessage("§cModo de jogo inserido inválido.");
             return;
         }
-        if (player == null) {
+        if (target == null) {
             player.setGameMode(gameMode);
-            player.sendMessage("§aModo de jogo alterado para §f" + gameMode.name() + "§e.");
+            player.sendMessage("§aModo de jogo alterado para §f" + gameMode.name() + "§2.");
         } else {
             target.setGameMode(gameMode);
-            target.sendMessage("§aSeu modo de jogo foi alterado para" + gameMode.name() + "§e.");
+            target.sendMessage("§aO modo de jogo de "+ target.getName() +" foi alterado para " + gameMode.name() + "§2.");
         }
     }
 }
