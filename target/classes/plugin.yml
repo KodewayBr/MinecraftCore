@@ -1,0 +1,8 @@
+name: TesteDoMaisTestado
+author: Bassoli
+description: uma bosta
+api-version: 0.1
+version: 0.1
+main: com.bassoli.Bassoli
+commands:
+  
