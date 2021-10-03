@@ -1,5 +1,6 @@
 package com.bassoli.registry;
 
+import com.bassoli.commands.CommandFly;
 import lombok.Data;
 import com.bassoli.Bassoli;
 import com.bassoli.commands.CommandGamemode;
@@ -17,8 +18,10 @@ public class CommandRegistry {
         BukkitFrame bukkitFrame = new BukkitFrame(plugin);
 
         MessageHolder message = bukkitFrame.getMessageHolder();
-        message.setMessage(MessageType.INCORRECT_USAGE, "§c/{usage}");
+        message.setMessage(MessageType.NO_PERMISSION, "§cVocê não tem permissão para isso.");
+        message.setMessage(MessageType.INCORRECT_USAGE, "§cUtlize: /{usage}");
         bukkitFrame.registerCommands(
+                new CommandFly(),
                 new CommandGamemode(),
                 new CommandWebsite()
         );

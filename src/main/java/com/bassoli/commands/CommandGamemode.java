@@ -12,7 +12,7 @@ public class CommandGamemode {
 
     @Command(
             name = "gamemode",
-            usage = "gamemode <1,2,3> <playerName>",
+            usage = "gamemode <1,2,3> <player>",
             aliases = "gm",
             permission = "minister.gm"
     )
@@ -24,6 +24,12 @@ public class CommandGamemode {
             player.sendMessage("§cModo de jogo inserido inválido.");
             return;
         }
+
+        if(player == target) {
+            player.sendMessage("§cVocê não pode alterar seu modo de jogo!");
+            return;
+        }
+
         if (target == null) {
             player.setGameMode(gameMode);
             player.sendMessage("§aModo de jogo alterado para §f" + gameMode.name() + "§2.");
