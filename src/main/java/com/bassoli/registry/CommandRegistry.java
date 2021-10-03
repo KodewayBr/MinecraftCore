@@ -1,8 +1,9 @@
 package com.bassoli.registry;
 
+import lombok.Data;
 import com.bassoli.Bassoli;
 import com.bassoli.commands.CommandGamemode;
-import lombok.Data;
+import com.bassoli.commands.CommandWebsite;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
 import me.saiintbrisson.minecraft.command.message.MessageHolder;
 import me.saiintbrisson.minecraft.command.message.MessageType;
@@ -18,7 +19,8 @@ public class CommandRegistry {
         MessageHolder message = bukkitFrame.getMessageHolder();
         message.setMessage(MessageType.INCORRECT_USAGE, "§c/{usage}");
         bukkitFrame.registerCommands(
-                new CommandGamemode()
+                new CommandGamemode(),
+                new CommandWebsite()
         );
     }
 }
