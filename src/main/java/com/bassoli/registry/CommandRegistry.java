@@ -1,10 +1,8 @@
 package com.bassoli.registry;
 
-import com.bassoli.commands.CommandFly;
+import com.bassoli.commands.*;
 import lombok.Data;
 import com.bassoli.Bassoli;
-import com.bassoli.commands.CommandGamemode;
-import com.bassoli.commands.CommandWebsite;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
 import me.saiintbrisson.minecraft.command.message.MessageHolder;
 import me.saiintbrisson.minecraft.command.message.MessageType;
@@ -23,7 +21,9 @@ public class CommandRegistry {
         bukkitFrame.registerCommands(
                 new CommandFly(),
                 new CommandGamemode(),
-                new CommandWebsite()
+                new CommandFeed(),
+                new CommandWebsite(),
+                new CommandSystemStatus()
         );
     }
 }
