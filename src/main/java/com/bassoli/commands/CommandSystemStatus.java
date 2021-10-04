@@ -71,7 +71,7 @@ public class CommandSystemStatus {
             String info = Bukkit.getVersion();
             return info.split("MC: ")[1].split("\\)")[0];
         } catch (Throwable e) {
-            return "Nunca vi essa versao na minha vida, reportando para mojang";
+            return "Versão não encontrada!";
         }
     }
 
