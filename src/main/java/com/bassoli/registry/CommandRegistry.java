@@ -24,7 +24,8 @@ public class CommandRegistry {
                 new CommandFeed(),
                 new CommandWebsite(),
                 new CommandSystemStatus(),
-                new CommandKickAll()
+                new CommandKickAll(),
+                new CommandMaintence()
         );
     }
 }

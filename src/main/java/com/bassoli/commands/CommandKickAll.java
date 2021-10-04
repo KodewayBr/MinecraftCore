@@ -14,9 +14,9 @@ public class CommandKickAll {
     )
 
     public void handleKickAll(Context<Player> context) {
-        for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-            if (!target.hasPermission("minister.kickall"))
-                target.kickPlayer("§cVocê foi kickado do servidor, tente entrar novamente ou entramos em manutenção.");
+        for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
+            if (!allPlayers.hasPermission("minister.kickall"))
+                allPlayers.kickPlayer("§cVocê foi kickado do servidor, tente entrar novamente ou entramos em manutenção.");
         }
     }
 }
