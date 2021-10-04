@@ -9,4 +9,5 @@ Message:
   Feed_Full_Player: '&cA fome deste jogador já está cheia.'
   Feed_Regenerated_Player: '&eFome de &f%s &efoi saciada com êxito.'
   Feed_Regenerated_By_Player: '&eSua fome foi saciada por &f%s&e.'
-  Maintence_Kick: '&cVocê, você mesmo com o nome de %s foi kickado, sorry!'
+  Maintence_Kick: '&cOlá %s você infelizemente foi kickado!'
+  Website: '&aO site do nosso servidor é &fwww.seusite.com.br'

@@ -1,11 +1,17 @@
 package com.bassolicodes.commands;
 
+import com.bassolicodes.Core;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class CommandWebsite {
+
+    FileConfiguration config = Core.getInstance().getConfig();
 
     @Command(
             name = "site",
@@ -19,14 +25,6 @@ public class CommandWebsite {
             return;
         }
 
-        player.sendMessage(
-                new String[]
-                        {
-                                "",
-                                "§eAcesse nosso site e adquira suas vantagens:",
-                                "§f→ www.website.com",
-                                ""
-                        }
-        );
+        player.sendMessage(String.valueOf(config.getStringList("Message.Website")).replace("&", "§"));
     }
 }
