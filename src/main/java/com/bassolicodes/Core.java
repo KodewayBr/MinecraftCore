@@ -22,6 +22,8 @@ public class Core extends JavaPlugin {
     public static Config config;
     private SQLConnector sqlConnector;
     private SQLExecutor sqlExecutor;
+    private final boolean debug = getConfig().getBoolean("plugin.debug");
+
 
     @Override
     public void onEnable() {
