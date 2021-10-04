@@ -25,6 +25,6 @@ public class CommandWebsite {
             return;
         }
 
-        player.sendMessage(String.valueOf(config.getStringList("Message.Website")).replace("&", "§"));
+        player.sendMessage(String.valueOf(config.getString("Message.Website")).replace("&", "§"));
     }
 }
