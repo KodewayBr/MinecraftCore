@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 
 public class CommandMaintence {
 
+    public static boolean maintenceStatus = false;
+
     @Command(
             name = "manutencao",
             aliases = "maintence",
@@ -17,16 +19,23 @@ public class CommandMaintence {
     public void handleMaintence(Context<Player> context) {
         val player = context.getSender();
 
-        if(Bukkit.getServer().hasWhitelist()) {
-            Bukkit.getServer().setWhitelist(false);
-            player.sendMessage("§aO servidor foi aberto para todos os jogadores!");
-        } else {
-            Bukkit.getServer().setWhitelist(true);
-            player.sendMessage("§cServidor fechado para todos!");
-            for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
-                if (!allPlayers.hasPermission("minister.manutencao"))
+
+        for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
+
+            if (!maintenceStatus) {
+
+                maintenceStatus = true;
+
+                if (!allPlayers.hasPermission("minister.manutencao")) {
                     allPlayers.kickPlayer("§cServidor entrou em manutenção, avisaremos a volta no discord.");
+                } else {
+                    if (maintenceStatus) {
+                        maintenceStatus = false;
+                        player.sendMessage("§cO servidor está em manutenção!");
+                    }
+                }
             }
+
         }
 
     }
