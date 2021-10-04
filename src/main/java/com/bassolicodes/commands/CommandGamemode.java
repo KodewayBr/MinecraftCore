@@ -25,14 +25,14 @@ public class CommandGamemode {
         val player = (Player) context.getSender();
         GameMode gameMode = GameMode.getByValue(mode);
         if (gameMode == null) {
-            player.sendMessage("§cModo de jogo inserido inválido.");
+            player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
             return;
         }
 
-        //if(player == target) {
-            //player.sendMessage("§cVocê não pode alterar seu modo de jogo!");
-            //return;
-        //}
+        if (player == target) {
+            player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
+            return;
+        }
 
         if (target == null) {
             player.setGameMode(gameMode);
