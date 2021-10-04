@@ -12,6 +12,7 @@ public class Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         instance = this;
         config = new Config(this, "config.yml");
         System.out.println("O plugin foi habilitado corretamente.");

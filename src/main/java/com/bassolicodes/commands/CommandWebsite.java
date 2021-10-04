@@ -4,10 +4,9 @@ import com.bassolicodes.Core;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-
-import java.util.List;
 
 public class CommandWebsite {
 
@@ -18,13 +17,10 @@ public class CommandWebsite {
             aliases = {"website", "web"}
     )
 
-    public void handleWebsite(Context<Player> context) {
+    public void handleWebsite(Context<CommandSender> context) {
         val player = (Player) context.getSender();
 
-        if (player == null) {
-            return;
-        }
-
-        player.sendMessage(String.valueOf(config.getString("Message.Website")).replace("&", "§"));
+        player.sendMessage(config.getString("Message.Website").replace("&", "§"));
     }
+
 }
