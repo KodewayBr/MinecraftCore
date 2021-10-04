@@ -19,6 +19,7 @@ public class CommandRegistry {
 
         MessageHolder message = bukkitFrame.getMessageHolder();
         message.setMessage(MessageType.NO_PERMISSION, config.getString("Message.No_Permissions").replace("&", "§"));
+        message.setMessage(MessageType.INCORRECT_TARGET, config.getString("Message.Incorect_Target").replace("&", "§"));
         message.setMessage(MessageType.INCORRECT_USAGE, "§cUtlize: /{usage}");
         bukkitFrame.registerCommands(
                 new CommandFly(),
@@ -28,7 +29,8 @@ public class CommandRegistry {
                 new CommandSystemStatus(),
                 new CommandKickAll(),
                 new CommandMaintence(),
-                new CommandClearChat()
+                new CommandClearChat(),
+                new CommandTrash()
         );
     }
 }
