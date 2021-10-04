@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class CommandFeed {
     @Command(
             name = "feed",
-            permission = "minister.feed"
+            permission = "core.feed"
     )
     public void handleFeed(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();

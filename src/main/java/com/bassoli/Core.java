@@ -3,12 +3,11 @@ package com.bassoli;
 import com.bassoli.registry.CommandRegistry;
 import com.bassoli.registry.EventRegistry;
 import com.bassoli.utils.Config;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Bassoli extends JavaPlugin {
+public class Core extends JavaPlugin {
 
-    public static Bassoli instance;
+    public static Core instance;
     public static Config config;
 
     @Override
@@ -31,7 +30,7 @@ public class Bassoli extends JavaPlugin {
         EventRegistry.of(this).register();
     }
 
-    public static Bassoli getInstance() {
+    public static Core getInstance() {
         return instance;
     }
 

@@ -13,7 +13,7 @@ public class CommandMaintence {
     @Command(
             name = "manutencao",
             aliases = "maintence",
-            permission = "minister.manutencao"
+            permission = "core.manutencao"
     )
 
     public void handleMaintence(Context<Player> context) {

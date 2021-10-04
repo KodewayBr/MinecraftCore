@@ -1,8 +1,8 @@
 package com.bassoli.registry;
 
+import com.bassoli.Core;
 import com.bassoli.commands.*;
 import lombok.Data;
-import com.bassoli.Bassoli;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
 import me.saiintbrisson.minecraft.command.message.MessageHolder;
 import me.saiintbrisson.minecraft.command.message.MessageType;
@@ -11,8 +11,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 @Data(staticConstructor = "of")
 public class CommandRegistry {
 
-    private final Bassoli plugin;
-    FileConfiguration config = Bassoli.getInstance().getConfig();
+    private final Core plugin;
+    FileConfiguration config = Core.getInstance().getConfig();
 
     public void register() {
         BukkitFrame bukkitFrame = new BukkitFrame(plugin);

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class CommandFly {
     @Command(
             name = "fly",
-            permission = "minister.fly"
+            permission = "core.fly"
     )
     public void handleFly(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();

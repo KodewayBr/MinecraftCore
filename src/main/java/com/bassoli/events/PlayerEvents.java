@@ -1,8 +1,8 @@
 package com.bassoli.events;
 
-import lombok.val;
-import com.bassoli.Bassoli;
+import com.bassoli.Core;
 import com.bassoli.commands.CommandMaintence;
+import lombok.val;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerEvents implements Listener {
 
-    FileConfiguration config = Bassoli.getInstance().getConfig();
+    FileConfiguration config = Core.getInstance().getConfig();
 
     @EventHandler
     public void onMaintence(PlayerJoinEvent event) {
@@ -23,7 +23,7 @@ public class PlayerEvents implements Listener {
         event.setJoinMessage(null);
 
         if (CommandMaintence.maintenceStatus) {
-            if (!player.hasPermission("minister.manutencao")) {
+            if (!player.hasPermission("core.manutencao")) {
                 player.kickPlayer("§cVocê não pode entrar com o servidor em manutenção!");
             }
         }

@@ -14,7 +14,7 @@ public class CommandSystemStatus {
     @Command(
             name = "status",
             aliases = "tps",
-            permission = "seila.seila"
+            permission = "core.status"
     )
 
     public void handleSystemStatus(Context<Player> context) {

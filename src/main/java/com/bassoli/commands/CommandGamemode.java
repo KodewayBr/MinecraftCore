@@ -1,6 +1,6 @@
 package com.bassoli.commands;
 
-import com.bassoli.Bassoli;
+import com.bassoli.Core;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
@@ -12,13 +12,13 @@ import org.bukkit.entity.Player;
 
 public class CommandGamemode {
 
-    FileConfiguration config = Bassoli.getInstance().getConfig();
+    FileConfiguration config = Core.getInstance().getConfig();
 
     @Command(
             name = "gamemode",
             usage = "gamemode <1,2,3> <player>",
             aliases = "gm",
-            permission = "minister.gm"
+            permission = "core.gm"
     )
 
     public void handleGamemode(Context<CommandSender> context, Integer mode, @Optional Player target) {
