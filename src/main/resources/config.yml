@@ -2,3 +2,8 @@ Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
   Gamemode_Change_Player: '&aO modo de jogo de %s foi alterado para %s.'
   No_Permissions: '&cVocê não tem permissão para executar esse comando!'
+  Feed_Max: '&cSua fome está cheia.'
+  Feed_Satiated: '&aSua fome foi saciada com êxito.'
+  Feed_Full_Player: '&cA fome deste jogador já está cheia.'
+  Feed_Regenerated_Player: '&eFome de &f%s &efoi saciada com êxito.'
+  Feed_Regenerated_By_Player: '&eSua fome foi saciada por &f%s&e.'
