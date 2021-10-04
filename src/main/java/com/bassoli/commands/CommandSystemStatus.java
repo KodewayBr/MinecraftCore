@@ -7,7 +7,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
 import java.lang.management.OperatingSystemMXBean;
 
 public class CommandSystemStatus {
@@ -30,6 +29,8 @@ public class CommandSystemStatus {
                                 " §lINFORMAÇÕES DO SERVIDOR",
                                 "",
                                 " §aSistema operacional: §7" + operatingSystemMXBean.getName() + ".",
+                                " §aUso de memória RAM: §7" + getRamUsage(),
+                                " §aTotal de processadores: §7" + Runtime.getRuntime().availableProcessors(),
                                 " §aJAR utilizada: §7" + getJarType() + ".",
                                 " §aMinecraft Version: §7" + getMinecraftVersion() + ".",
                                 " §aTotal de jogadores: §7" + getOnlinePlayers() + "/" + getMaxPlayers(),
@@ -41,6 +42,18 @@ public class CommandSystemStatus {
 
     }
 
+    public static long getUsedMemory() {
+        return (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1048576L;
+    }
+
+    public static long getMaxMemory() {
+        return Runtime.getRuntime().maxMemory() / 1048576L;
+    }
+
+    public static String getRamUsage() {
+        float percent = (float) getUsedMemory() / (float) getMaxMemory() * 100.0F;
+        return "§8[§7" + getUsedMemory() + "MB/" + getMaxMemory() + "MB§8] §a(" + Math.floor(percent) + "%)";
+    }
 
     public static String getJarType() {
         try {
@@ -63,12 +76,10 @@ public class CommandSystemStatus {
     }
 
     public static Object getMaxPlayers() {
-        Object maxPlayers = Bukkit.getServer().getMaxPlayers();
-        return maxPlayers;
+        return Bukkit.getServer().getMaxPlayers();
     }
 
     public static Object getOnlinePlayers() {
-        Object players = Bukkit.getOnlinePlayers().size();
-        return players;
+        return Bukkit.getOnlinePlayers().size();
     }
 }
