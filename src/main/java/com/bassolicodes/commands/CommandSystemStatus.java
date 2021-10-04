@@ -33,7 +33,7 @@ public class CommandSystemStatus {
                                 " §aTotal de processadores: §7" + Runtime.getRuntime().availableProcessors(),
                                 " §aJAR utilizada: §7" + getJarType() + ".",
                                 " §aMinecraft Version: §7" + getMinecraftVersion() + ".",
-                                " §aTotal de jogadores: §7" + getOnlinePlayers() + "/" + getMaxPlayers(),
+                                " §aTotal de jogadores: §7" + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getServer().getMaxPlayers(),
                                 Bukkit.getServer().getIp() != null ? " §aEndereço de IP: §cIP não encontrado!" : " §aEndereço de IP: §7" + Bukkit.getServer().getIp(),
                                 " §aPorta de acesso: §7" + Bukkit.getPort(),
                                 ""
@@ -73,13 +73,5 @@ public class CommandSystemStatus {
         } catch (Throwable e) {
             return "Versão não encontrada!";
         }
-    }
-
-    public static Object getMaxPlayers() {
-        return Bukkit.getServer().getMaxPlayers();
-    }
-
-    public static Object getOnlinePlayers() {
-        return Bukkit.getOnlinePlayers().size();
     }
 }
