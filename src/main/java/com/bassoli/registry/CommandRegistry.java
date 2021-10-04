@@ -23,7 +23,8 @@ public class CommandRegistry {
                 new CommandGamemode(),
                 new CommandFeed(),
                 new CommandWebsite(),
-                new CommandSystemStatus()
+                new CommandSystemStatus(),
+                new CommandKickAll()
         );
     }
 }
