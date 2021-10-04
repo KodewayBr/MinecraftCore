@@ -1,47 +1,77 @@
 package com.bassolicodes;
 
+import com.bassolicodes.database.SQLProvider;
 import com.bassolicodes.registry.CommandRegistry;
 import com.bassolicodes.registry.EventRegistry;
 import com.bassolicodes.utils.Config;
+import com.bassolicodes.utils.TextLogger;
+import com.google.common.base.Stopwatch;
+import com.henryfabio.sqlprovider.connector.SQLConnector;
+import com.henryfabio.sqlprovider.executor.SQLExecutor;
+import lombok.Getter;
+import lombok.val;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.logging.Level;
 
+@Getter
 public class Core extends JavaPlugin {
 
     public static Core instance;
+    private final TextLogger textLogger = new TextLogger();
     public static Config config;
-
-    final String username = config.getConfig().getString("MySQL.username");
-    final String password = config.getConfig().getString("MySQL.password");
-    final String url = "jdbc:mysql://" + config.getConfig().getString("MySQL.host") + ":" + config.getConfig().getInt("MySQL.port") + "/" + config.getConfig().getString("MySQL.database");
-    static Connection connection;
+    private SQLConnector sqlConnector;
+    private SQLExecutor sqlExecutor;
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
-        instance = this;
-        config = new Config(this, "config.yml");
-        System.out.println("O plugin foi habilitado corretamente.");
-        saveDefaultConfig();
-        allRecords();
-
         try {
-            connection = DriverManager.getConnection(url, username, password);
-            System.out.println("Plugin conectado com sucesso ao banco de dados!");
-        } catch (SQLException e) {
-            System.out.println("Ocorreu um erro ao se conectar com MySQL, revise os dados!");
-            e.printStackTrace();
-        }
+            getLogger().info("Iniciando carregamento do plugin.");
+            val loadTime = Stopwatch.createStarted();
 
+            sqlConnector = SQLProvider.of(this).setup();
+            sqlExecutor = new SQLExecutor(sqlConnector);
+
+            instance = this;
+
+            loadConfig();
+            allRecords();
+
+            SQLProvider.of(this).setup();
+            getLogger().log(Level.INFO, "Plugin inicializado com sucesso. ({0})", loadTime);
+        } catch (Exception e) {
+            textLogger.error("Ocorreu um erro, tente novamente.");
+            e.getMessage();
+        }
+    }
+
+    public void onLoad() {
+    }
+
+    public void loadConfig() {
+        try {
+            val loadConfigTiming = Stopwatch.createStarted();
+
+            System.out.println("Carregando configurações!");
+            config = new Config(this, "config.yml");
+            saveDefaultConfig();
+
+            loadConfigTiming.stop();
+            textLogger.info(String.format("As informações da configuração fora lidas. (%s)", loadConfigTiming));
+        } catch (Throwable e) {
+            System.out.println("Ocorreu um erro ao carregar as configurações!");
+            e.getMessage();
+        }
     }
 
     @Override
     public void onDisable() {
-        System.out.println("O plugin foi desabilitado corretamente.");
+        val disableTiming = Stopwatch.createStarted();
+
         saveConfig();
+
+        disableTiming.stop();
+        textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
     }
 
     public void allRecords() {

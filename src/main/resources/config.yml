@@ -1,9 +1,12 @@
-MYSQL:
-  host: 'localhost'
-  username: 'root'
-  password: ''
-  database: 'database'
-  port: 3306
+database:
+  type: 'mysql' # Opções válidas: 'sqlite' e 'mysql'
+  mysql:
+    address: '135.148.58.236:3306'
+    username: 'u4_9LdvYZGvJ7'
+    password: '0g7sy5l0jDGSlemVaD!dmO+5'
+    database: 's4_plugin_minecraft'
+  sqlite:
+    file: 'database/database.db'
 
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
