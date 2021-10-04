@@ -1,7 +1,8 @@
 MYSQL:
-  username: ''
+  host: 'localhost'
+  username: 'root'
   password: ''
-  database: ''
+  database: 'database'
   port: 3306
 
 Message:
