@@ -1,6 +1,6 @@
 name: MinecraftCore
-author: Bassoli
-version: 0.1
+author: BassoliCodes
+version: 0.5
 main: com.bassolicodes.Core
 commands:
   

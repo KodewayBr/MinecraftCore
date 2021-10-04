@@ -1,8 +1,8 @@
 package com.bassolicodes.events;
 
+import lombok.val;
 import com.bassolicodes.Core;
 import com.bassolicodes.commands.CommandMaintence;
-import lombok.val;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,8 +11,9 @@ import org.bukkit.event.entity.EntityPortalExitEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 
-public class PlayerEvents implements Listener {
+public class ServerAndPlayersEvents implements Listener {
 
     FileConfiguration config = Core.getInstance().getConfig();
 
@@ -36,7 +37,7 @@ public class PlayerEvents implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-            event.setDeathMessage(null);
+        event.setDeathMessage(null);
     }
 
     @EventHandler
@@ -50,6 +51,13 @@ public class PlayerEvents implements Listener {
     public void deathOnQuit(EntityPortalExitEvent event) {
         if (event.getEntity().isDead()) {
             event.getEntity().remove();
+        }
+    }
+
+    @EventHandler(ignoreCancelled = true)
+    public void onRain(WeatherChangeEvent event) {
+        if (event.toWeatherState()) {
+            event.setCancelled(true);
         }
     }
 

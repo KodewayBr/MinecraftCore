@@ -1,3 +1,9 @@
+MYSQL:
+  username: ''
+  password: ''
+  database: ''
+  port: 3306
+
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
   Gamemode_Change_Player: '&aO modo de jogo de %s foi alterado para %s.'

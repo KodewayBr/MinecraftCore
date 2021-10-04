@@ -1,7 +1,7 @@
 package com.bassolicodes.registry;
 
 import com.bassolicodes.Core;
-import com.bassolicodes.events.PlayerEvents;
+import com.bassolicodes.events.ServerAndPlayersEvents;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -14,10 +14,7 @@ public class EventRegistry {
     public void register() {
         PluginManager pluginManager = Bukkit.getPluginManager();
 
-        pluginManager.registerEvents(
-                new PlayerEvents(),
-                plugin
-        );
+        pluginManager.registerEvents(new ServerAndPlayersEvents(), plugin);
 
     }
 
