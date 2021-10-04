@@ -27,7 +27,8 @@ public class CommandRegistry {
                 new CommandWebsite(),
                 new CommandSystemStatus(),
                 new CommandKickAll(),
-                new CommandMaintence()
+                new CommandMaintence(),
+                new CommandClearChat()
         );
     }
 }
