@@ -1,4 +1,4 @@
-package com.bassoli.commands;
+package com.bassolicodes.commands;
 
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;

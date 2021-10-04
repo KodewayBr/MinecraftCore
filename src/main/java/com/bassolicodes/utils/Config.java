@@ -1,4 +1,4 @@
-package com.bassoli.utils;
+package com.bassolicodes.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

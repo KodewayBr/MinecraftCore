@@ -1,8 +1,8 @@
-package com.bassoli;
+package com.bassolicodes;
 
-import com.bassoli.registry.CommandRegistry;
-import com.bassoli.registry.EventRegistry;
-import com.bassoli.utils.Config;
+import com.bassolicodes.registry.CommandRegistry;
+import com.bassolicodes.registry.EventRegistry;
+import com.bassolicodes.utils.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Core extends JavaPlugin {

@@ -1,7 +1,7 @@
-package com.bassoli.registry;
+package com.bassolicodes.registry;
 
-import com.bassoli.Core;
-import com.bassoli.events.PlayerEvents;
+import com.bassolicodes.Core;
+import com.bassolicodes.events.PlayerEvents;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;

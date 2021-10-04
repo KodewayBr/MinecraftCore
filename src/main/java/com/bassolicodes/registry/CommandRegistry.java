@@ -1,7 +1,7 @@
-package com.bassoli.registry;
+package com.bassolicodes.registry;
 
-import com.bassoli.Core;
-import com.bassoli.commands.*;
+import com.bassolicodes.Core;
+import com.bassolicodes.commands.*;
 import lombok.Data;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
 import me.saiintbrisson.minecraft.command.message.MessageHolder;

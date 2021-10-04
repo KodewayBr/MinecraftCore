@@ -1,7 +1,7 @@
-package com.bassoli.events;
+package com.bassolicodes.events;
 
-import com.bassoli.Core;
-import com.bassoli.commands.CommandMaintence;
+import com.bassolicodes.Core;
+import com.bassolicodes.commands.CommandMaintence;
 import lombok.val;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;

@@ -1,4 +1,4 @@
-package com.bassoli.commands;
+package com.bassolicodes.commands;
 
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
