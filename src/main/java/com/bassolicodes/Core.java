@@ -33,7 +33,7 @@ public class Core extends JavaPlugin {
             allRecords();
             connect();
 
-            getLogger().log(Level.INFO, "Plugin inicializado com sucesso. ({0})", loadTime);
+            textLogger.info(String.format("Plugin inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
             textLogger.error("Ocorreu um erro, tente novamente.");
             e.getMessage();
