@@ -36,13 +36,6 @@ public class MinecraftCore extends JavaPlugin {
             allRecords();
             connect();
 
-            try {
-                Statement statement = connection.createStatement();
-                statement.execute("CREATE TABLE IF NOT EXISTS `user` (`uuid` varchar(255));");
-            } catch (SQLException e) {
-                textLogger.error("Ocorreu um erro ao criar a tabela!" + e.getMessage());
-            }
-
             textLogger.info(String.format("Plugin inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
             textLogger.error("Ocorreu um erro, tente novamente.");
@@ -54,7 +47,7 @@ public class MinecraftCore extends JavaPlugin {
         try {
             val loadConfigTiming = Stopwatch.createStarted();
 
-            textLogger.info("Carregando configurações!");
+            textLogger.info("Carregando configurações do plugin!");
             config = new Config(this, "config.yml");
             saveDefaultConfig();
 

@@ -30,6 +30,8 @@ public class CommandGamemode {
             player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
         } else if (player == target) {
             player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
+        } if (!player.hasPermission("core.gm.admin")) {
+            player.sendMessage("Você não pode alterar o modo de jogo de outros jogadores.");
         } else if (target == null) {
             player.setGameMode(gameMode);
             player.sendMessage(String.format(config.getString("Message.Gamemode_Change").replace("&", "§"), gameMode.name()));
