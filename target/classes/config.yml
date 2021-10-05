@@ -1,9 +1,9 @@
 database:
-  address: '135.148.58.236'
+  address: 'localhost'
   port: 3306
-  username: 'u294_uQlxU4lSVO'
-  password: 'G=kVzS!bX=jvGN9OV@uBuQrS'
-  database: 's294_MinecraftCore'
+  username: 'root'
+  password: ''
+  database: 'minecraftcore'
 
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'

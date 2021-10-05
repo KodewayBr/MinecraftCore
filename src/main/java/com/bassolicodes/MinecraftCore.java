@@ -1,24 +1,20 @@
 package com.bassolicodes;
 
+import lombok.val;
+import lombok.Getter;
 import com.bassolicodes.database.Storage;
 import com.bassolicodes.registry.CommandRegistry;
 import com.bassolicodes.registry.EventRegistry;
 import com.bassolicodes.utils.Config;
 import com.bassolicodes.utils.TextLogger;
 import com.google.common.base.Stopwatch;
-import lombok.Getter;
-import lombok.val;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.sql.Connection;
-import java.sql.Statement;
 
 @Getter
 public class MinecraftCore extends JavaPlugin {
 
     public static MinecraftCore instance;
     private final TextLogger textLogger = new TextLogger();
-    private Connection connection;
     public static Config config;
     private Storage storage;
 
@@ -34,12 +30,10 @@ public class MinecraftCore extends JavaPlugin {
             allRecords();
             connect();
 
-            Statement statement = connection.createStatement();
-            statement.execute("CREATE TABLE IF NOT EXISTS `player` (`identifier` varchar(32));");
-
+            loadTime.stop();
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
-            textLogger.error("Ocorreu um erro, tente novamente.");
+            textLogger.error("Erro! O Plugin ocorreu problemas na inicialização.");
             e.getMessage();
         }
     }
@@ -92,19 +86,22 @@ public class MinecraftCore extends JavaPlugin {
         return instance;
     }
 
-    private void connect(){
+    private void connect() {
 
         try {
             String address = this.getConfig().getString("database.address");
-            int port =this.getConfig().getInt("database.port");
-            String user =this.getConfig().getString("database.username");
-            String password =this.getConfig().getString("database.password");
+            int port = this.getConfig().getInt("database.port");
+            String user = this.getConfig().getString("database.username");
+            String password = this.getConfig().getString("database.password");
             String database = this.getConfig().getString("database.database");
 
             this.storage = new Storage(address, user, password, database, port);
-        } catch (Exception e){
+        } catch (Exception e) {
             textLogger.error("Falha ao conectar-se com o MYSQL...");
         }
     }
 
+    public Storage getStorage() {
+        return storage;
+    }
 }
