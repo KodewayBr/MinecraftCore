@@ -70,12 +70,21 @@ public class MinecraftCore extends JavaPlugin {
     }
 
     public void allRecords() {
-        val allRecordsTiming = Stopwatch.createStarted();
-        CommandRegistry.of(this).register();
-        EventRegistry.of(this).register();
+        try {
+            val allRecordsTiming = Stopwatch.createStarted();
+            CommandRegistry.of(this).register();
 
-        allRecordsTiming.stop();
-        textLogger.info(String.format("Todos os registros foram lidos. (%s)", allRecordsTiming));
+            textLogger.info(String.format("Comandos registrados foram verificados... [1/2] (%s)", allRecordsTiming));
+            allRecordsTiming.stop();
+
+            val allEventsTiming = Stopwatch.createStarted();
+            EventRegistry.of(this).register();
+            allEventsTiming.stop();
+            textLogger.info(String.format("Eventos registrados foram verificados... [2/2] (%s)", allEventsTiming));
+        } catch (Exception e) {
+            textLogger.error("Ocorreu um erro com o registro de eventos e comando, verifique!");
+            e.getMessage();
+        }
     }
 
     public static MinecraftCore getInstance() {
