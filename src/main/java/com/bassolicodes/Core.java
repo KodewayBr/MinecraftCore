@@ -84,7 +84,7 @@ public class Core extends JavaPlugin {
         try {
             String address = this.getConfig().getString("database.address");
             int port =this.getConfig().getInt("database.port");
-            String user =this.getConfig().getString("database.user");
+            String user =this.getConfig().getString("database.username");
             String password =this.getConfig().getString("database.password");
             String database = this.getConfig().getString("database.database");
 
