@@ -44,7 +44,7 @@ public class Core extends JavaPlugin {
         try {
             val loadConfigTiming = Stopwatch.createStarted();
 
-            System.out.println("Carregando configurações!");
+            textLogger.info("Carregando configurações!");
             config = new Config(this, "config.yml");
             saveDefaultConfig();
 
