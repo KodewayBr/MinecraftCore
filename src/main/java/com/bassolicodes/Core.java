@@ -24,7 +24,7 @@ public class Core extends JavaPlugin {
     @Override
     public void onEnable() {
         try {
-            getLogger().info("Iniciando carregamento do plugin.");
+            textLogger.info("Iniciando carregamento do plugin.");
             val loadTime = Stopwatch.createStarted();
 
             loadConfig();
