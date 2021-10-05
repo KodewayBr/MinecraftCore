@@ -1,12 +1,9 @@
 database:
-  type: 'sqlite' # Opções válidas: 'sqlite' e 'mysql'
-  mysql:
-    address: '135.148.58.236:3306'
-    username: 'u4_9LdvYZGvJ7'
-    password: '0g7sy5l0jDGSlemVaD!dmO+5'
-    database: 's4_plugin_minecraft'
-  sqlite:
-    file: 'database/database.db'
+  address: '135.148.58.236'
+  port: 3306
+  username: 'u4_9LdvYZGvJ7'
+  password: '0g7sy5l0jDGSlemVaD!dmO+5'
+  database: 's4_plugin_minecraft'
 
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
@@ -24,7 +21,3 @@ Message:
   Website: '&aO site do nosso servidor é &fwww.seusite.com.br'
   Clear_Chat: '&aO chat foi limpo por &2%s&a!'
   Trash_Title: '&8Lixeira de %s.'
-
-Plugin:
-  # Ative ou desative o envio de algumas informações do 'back-end' do plugin no console.
-  debugMode: false
