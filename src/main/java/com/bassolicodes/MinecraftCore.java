@@ -1,8 +1,5 @@
 package com.bassolicodes;
 
-import com.bassolicodes.sql.SQLProvider;
-import com.henryfabio.sqlprovider.connector.SQLConnector;
-import com.henryfabio.sqlprovider.executor.SQLExecutor;
 import lombok.val;
 import lombok.Getter;
 import com.bassolicodes.registry.CommandRegistry;
@@ -19,9 +16,6 @@ public class MinecraftCore extends JavaPlugin {
     private final TextLogger textLogger = new TextLogger();
     public static Config config;
 
-    private SQLConnector sqlConnector;
-    private SQLExecutor sqlExecutor;
-
     @Override
     public void onEnable() {
         try {
@@ -31,9 +25,6 @@ public class MinecraftCore extends JavaPlugin {
             loadConfig();
             instance = this;
             allRecords();
-
-            sqlConnector = SQLProvider.of(this).setup();
-            sqlExecutor = new SQLExecutor(sqlConnector);
 
             loadTime.stop();
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
