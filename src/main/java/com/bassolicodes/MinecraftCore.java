@@ -2,7 +2,6 @@ package com.bassolicodes;
 
 import lombok.val;
 import lombok.Getter;
-import com.bassolicodes.database.Storage;
 import com.bassolicodes.registry.CommandRegistry;
 import com.bassolicodes.registry.EventRegistry;
 import com.bassolicodes.utils.Config;
@@ -16,7 +15,6 @@ public class MinecraftCore extends JavaPlugin {
     public static MinecraftCore instance;
     private final TextLogger textLogger = new TextLogger();
     public static Config config;
-    private Storage storage;
 
     @Override
     public void onEnable() {
@@ -25,10 +23,8 @@ public class MinecraftCore extends JavaPlugin {
             val loadTime = Stopwatch.createStarted();
 
             loadConfig();
-
             instance = this;
             allRecords();
-            connect();
 
             loadTime.stop();
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
@@ -54,16 +50,6 @@ public class MinecraftCore extends JavaPlugin {
         }
     }
 
-    @Override
-    public void onDisable() {
-        val disableTiming = Stopwatch.createStarted();
-
-        saveConfig();
-
-        disableTiming.stop();
-        textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
-    }
-
     public void allRecords() {
         try {
             val allRecordsTiming = Stopwatch.createStarted();
@@ -86,22 +72,13 @@ public class MinecraftCore extends JavaPlugin {
         return instance;
     }
 
-    private void connect() {
+    @Override
+    public void onDisable() {
+        val disableTiming = Stopwatch.createStarted();
 
-        try {
-            String address = this.getConfig().getString("database.address");
-            int port = this.getConfig().getInt("database.port");
-            String user = this.getConfig().getString("database.username");
-            String password = this.getConfig().getString("database.password");
-            String database = this.getConfig().getString("database.database");
+        saveConfig();
 
-            this.storage = new Storage(address, user, password, database, port);
-        } catch (Exception e) {
-            textLogger.error("Falha ao conectar-se com o MYSQL...");
-        }
-    }
-
-    public Storage getStorage() {
-        return storage;
+        disableTiming.stop();
+        textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
     }
 }
