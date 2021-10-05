@@ -79,5 +79,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.HenryFabio</groupId>
+            <artifactId>sql-provider</artifactId>
+            <version>9561f20fd2</version>
+        </dependency>
+
     </dependencies>
 </project>

@@ -1,0 +1,6 @@
+name: MinecraftCore
+author: BassoliCodes
+version: 0.5
+main: com.bassolicodes.MinecraftCore
+commands:
+  
