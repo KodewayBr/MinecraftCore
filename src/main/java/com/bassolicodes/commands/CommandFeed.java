@@ -22,21 +22,19 @@ public class CommandFeed {
     public void handleFeed(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();
 
-        if(target == null) {
+        if (target == null) {
             if (player.getFoodLevel() == 20) {
                 player.sendMessage(config.getString("Message.Feed_Max").replace("&", "§"));
             } else {
                 player.setFoodLevel(20);
                 player.sendMessage(config.getString("Message.Feed_Satiated").replace("&", "§"));
             }
+        } else if (target.getFoodLevel() == 20) {
+            player.sendMessage(config.getString("Message.Feed_Full_Player").replace("&", "§"));
         } else {
-          if(target.getFoodLevel() == 20) {
-              player.sendMessage(config.getString("Message.Feed_Full_Player").replace("&", "§"));
-          } else {
-              target.setFoodLevel(20);
-              player.sendMessage(String.format(config.getString("Message.Feed_Regenerated_Player").replace("&", "§"), target.getName()));
-              target.sendMessage(String.format(config.getString("Message.Feed_Regenerated_By_Player").replace("&", "§"), player.getName()));
-          }
+            target.setFoodLevel(20);
+            player.sendMessage(String.format(config.getString("Message.Feed_Regenerated_Player").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(config.getString("Message.Feed_Regenerated_By_Player").replace("&", "§"), player.getName()));
         }
     }
 }
