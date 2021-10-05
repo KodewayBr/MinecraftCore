@@ -1,6 +1,6 @@
 package com.bassolicodes.registry;
 
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import com.bassolicodes.commands.*;
 import lombok.Data;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
@@ -11,8 +11,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 @Data(staticConstructor = "of")
 public class CommandRegistry {
 
-    private final Core plugin;
-    FileConfiguration config = Core.getInstance().getConfig();
+    private final MinecraftCore plugin;
+    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     public void register() {
         BukkitFrame bukkitFrame = new BukkitFrame(plugin);

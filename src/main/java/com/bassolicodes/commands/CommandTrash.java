@@ -1,6 +1,6 @@
 package com.bassolicodes.commands;
 
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.Inventory;
 
 public class CommandTrash {
 
-    FileConfiguration config = Core.getInstance().getConfig();
+    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "lixeira",

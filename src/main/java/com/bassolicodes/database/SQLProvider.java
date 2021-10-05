@@ -1,6 +1,6 @@
 package com.bassolicodes.database;
 
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import com.bassolicodes.utils.TextLogger;
 import lombok.Data;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -14,7 +14,7 @@ public final class SQLProvider {
 
     private void connect() {
 
-        FileConfiguration config = Core.getInstance().getConfig();
+        FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
         try {
             String address = config.getString("database.address");

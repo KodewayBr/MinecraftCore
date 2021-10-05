@@ -1,6 +1,6 @@
 package com.bassolicodes.commands;
 
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class CommandClearChat {
 
-    FileConfiguration config = Core.getInstance().getConfig();
+    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "limparchat",

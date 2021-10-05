@@ -1,7 +1,7 @@
 package com.bassolicodes.events;
 
 import lombok.val;
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import com.bassolicodes.commands.CommandMaintence;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
@@ -15,7 +15,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class ServerAndPlayersEvents implements Listener {
 
-    FileConfiguration config = Core.getInstance().getConfig();
+    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @EventHandler
     public void onMaintence(PlayerJoinEvent event) {

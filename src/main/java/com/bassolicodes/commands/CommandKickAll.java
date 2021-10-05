@@ -1,6 +1,6 @@
 package com.bassolicodes.commands;
 
-import com.bassolicodes.Core;
+import com.bassolicodes.MinecraftCore;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
 import org.bukkit.Bukkit;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class CommandKickAll {
 
-    FileConfiguration config = Core.getInstance().getConfig();
+    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "kickall",

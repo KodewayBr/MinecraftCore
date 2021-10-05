@@ -2,7 +2,6 @@ package com.bassolicodes;
 
 import lombok.val;
 import lombok.Getter;
-import org.bukkit.Bukkit;
 import com.bassolicodes.database.Storage;
 import com.bassolicodes.registry.CommandRegistry;
 import com.bassolicodes.registry.EventRegistry;
@@ -11,12 +10,10 @@ import com.bassolicodes.utils.TextLogger;
 import com.google.common.base.Stopwatch;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Level;
-
 @Getter
-public class Core extends JavaPlugin {
+public class MinecraftCore extends JavaPlugin {
 
-    public static Core instance;
+    public static MinecraftCore instance;
     private final TextLogger textLogger = new TextLogger();
     public static Config config;
     private Storage storage;
@@ -75,7 +72,7 @@ public class Core extends JavaPlugin {
         textLogger.info(String.format("Todos os registros foram lidos. (%s)", allRecordsTiming));
     }
 
-    public static Core getInstance() {
+    public static MinecraftCore getInstance() {
         return instance;
     }
 
