@@ -5,6 +5,7 @@ import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
+import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -15,7 +16,8 @@ public class CommandFeed {
 
     @Command(
             name = "feed",
-            permission = "core.feed"
+            permission = "core.feed",
+            target = CommandTarget.PLAYER
     )
     public void handleFeed(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();

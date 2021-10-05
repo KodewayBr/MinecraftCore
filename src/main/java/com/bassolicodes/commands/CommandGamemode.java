@@ -5,6 +5,7 @@ import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
+import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -18,7 +19,8 @@ public class CommandGamemode {
             name = "gamemode",
             usage = "gamemode <1,2,3> <player>",
             aliases = "gm",
-            permission = "core.gm"
+            permission = "core.gm",
+            target = CommandTarget.PLAYER
     )
 
     public void handleGamemode(Context<CommandSender> context, Integer mode, @Optional Player target) {

@@ -4,6 +4,7 @@ import com.bassolicodes.MinecraftCore;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
+import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -17,7 +18,8 @@ public class CommandClearChat {
     @Command(
             name = "limparchat",
             aliases = {"cc", "clearchat"},
-            permission = "core.clearchat"
+            permission = "core.clearchat",
+            target = CommandTarget.PLAYER
     )
     public void handleClearChat(Context<CommandSender> context) {
 
