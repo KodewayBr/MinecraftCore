@@ -27,7 +27,7 @@ public class MinecraftCore extends JavaPlugin {
     @Override
     public void onEnable() {
         try {
-            textLogger.info("Iniciando carregamento do plugin.");
+            textLogger.info("Iniciando o carregamento do plugin.");
             val loadTime = Stopwatch.createStarted();
 
             loadConfig();
@@ -36,7 +36,7 @@ public class MinecraftCore extends JavaPlugin {
             allRecords();
             connect();
 
-            textLogger.info(String.format("Plugin inicializado com sucesso. (%s)", loadTime));
+            textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
             textLogger.error("Ocorreu um erro, tente novamente.");
             e.getMessage();
