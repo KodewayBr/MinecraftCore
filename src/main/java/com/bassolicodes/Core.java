@@ -51,7 +51,7 @@ public class Core extends JavaPlugin {
             loadConfigTiming.stop();
             textLogger.info(String.format("As informações da configuração fora lidas. (%s)", loadConfigTiming));
         } catch (Throwable e) {
-            System.out.println("Ocorreu um erro ao carregar as configurações!");
+            textLogger.error("Ocorreu um erro ao carregar as configurações!");
             e.getMessage();
         }
     }
@@ -90,7 +90,7 @@ public class Core extends JavaPlugin {
 
             this.storage = new Storage(address, user, password, database, port);
         } catch (Exception e){
-            Bukkit.getConsoleSender().sendMessage("§c[Moonkode] Falha ao conectar-se com o MYSQL...");
+            textLogger.error("Falha ao conectar-se com o MYSQL...");
         }
     }
 
