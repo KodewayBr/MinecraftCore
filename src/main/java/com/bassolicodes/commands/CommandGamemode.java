@@ -28,21 +28,14 @@ public class CommandGamemode {
         GameMode gameMode = GameMode.getByValue(mode);
         if (gameMode == null) {
             player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
-            return;
-        }
-
-        if (player == target) {
+        } else if (player == target) {
             player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
-            return;
-        }
-
-        if (target == null) {
+        } else if (target == null) {
             player.setGameMode(gameMode);
             player.sendMessage(String.format(config.getString("Message.Gamemode_Change").replace("&", "§"), gameMode.name()));
         } else {
             target.setGameMode(gameMode);
             target.sendMessage(String.format(config.getString("Message.Gamemode_Change_Player").replace("&", "§"), target.getName(), gameMode.name()));
-            //target.sendMessage("§aO modo de jogo de "+ target.getName() +" foi alterado para " + gameMode.name() + "§2.");
         }
     }
 }

@@ -10,11 +10,17 @@ import com.bassolicodes.utils.TextLogger;
 import com.google.common.base.Stopwatch;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.concurrent.ExecutionException;
+
 @Getter
 public class MinecraftCore extends JavaPlugin {
 
     public static MinecraftCore instance;
     private final TextLogger textLogger = new TextLogger();
+    private Connection connection;
     public static Config config;
     private Storage storage;
 
@@ -29,6 +35,13 @@ public class MinecraftCore extends JavaPlugin {
             instance = this;
             allRecords();
             connect();
+
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute("CREATE TABLE IF NOT EXISTS `user` (`uuid` varchar(255));");
+            } catch (SQLException e) {
+                textLogger.error("Ocorreu um erro ao criar a tabela!" + e.getMessage());
+            }
 
             textLogger.info(String.format("Plugin inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
