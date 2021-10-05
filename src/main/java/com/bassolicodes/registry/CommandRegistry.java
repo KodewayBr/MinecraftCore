@@ -30,7 +30,8 @@ public class CommandRegistry {
                 new CommandKickAll(),
                 new CommandMaintence(),
                 new CommandClearChat(),
-                new CommandTrash()
+                new CommandTrash(),
+                new CommandProfile()
         );
     }
 }

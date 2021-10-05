@@ -24,8 +24,10 @@ public class CommandGamemode {
     )
 
     public void handleGamemode(Context<CommandSender> context, Integer mode, @Optional Player target) {
+
         val player = (Player) context.getSender();
         GameMode gameMode = GameMode.getByValue(mode);
+
         if (gameMode == null) {
             player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
         } else if (player == target) {

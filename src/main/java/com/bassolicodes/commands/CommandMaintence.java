@@ -17,8 +17,7 @@ public class CommandMaintence {
     )
 
     public void handleMaintence(Context<Player> context) {
-        val player = context.getSender();
-
+        val player = (Player) context.getSender();
 
         for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
 

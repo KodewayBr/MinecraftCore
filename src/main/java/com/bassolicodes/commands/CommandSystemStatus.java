@@ -3,6 +3,7 @@ package com.bassolicodes.commands;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
+import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -13,8 +14,8 @@ public class CommandSystemStatus {
 
     @Command(
             name = "status",
-            aliases = "tps",
-            permission = "core.status"
+            permission = "core.status",
+            target = CommandTarget.PLAYER
     )
 
     public void handleSystemStatus(Context<Player> context) {
@@ -34,7 +35,8 @@ public class CommandSystemStatus {
                                 " §aJAR utilizada: §7" + getJarType() + ".",
                                 " §aMinecraft Version: §7" + getMinecraftVersion() + ".",
                                 " §aTotal de jogadores: §7" + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getServer().getMaxPlayers(),
-                                Bukkit.getServer().getIp() != null ? " §aEndereço de IP: §cIP não encontrado!" : " §aEndereço de IP: §7" + Bukkit.getServer().getIp(),
+                                " §aEndereço de IP: §7" + Bukkit.getServer().getIp().toString(),
+                                " §aServidor está em whitelist: §7" + (Bukkit.getServer().hasWhitelist() ? "Sim" : "Não"),
                                 " §aPorta de acesso: §7" + Bukkit.getPort(),
                                 ""
                         }

@@ -1,19 +1,17 @@
 package com.bassolicodes;
 
-import lombok.val;
-import lombok.Getter;
 import com.bassolicodes.database.Storage;
 import com.bassolicodes.registry.CommandRegistry;
 import com.bassolicodes.registry.EventRegistry;
 import com.bassolicodes.utils.Config;
 import com.bassolicodes.utils.TextLogger;
 import com.google.common.base.Stopwatch;
+import lombok.Getter;
+import lombok.val;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.concurrent.ExecutionException;
 
 @Getter
 public class MinecraftCore extends JavaPlugin {
@@ -35,6 +33,9 @@ public class MinecraftCore extends JavaPlugin {
             instance = this;
             allRecords();
             connect();
+
+            Statement statement = connection.createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS `player` (`identifier` varchar(32));");
 
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
