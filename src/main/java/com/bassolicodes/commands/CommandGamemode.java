@@ -1,6 +1,6 @@
 package com.bassolicodes.commands;
 
-import com.bassolicodes.MinecraftCore;
+import com.bassolicodes.configuration.MensagensValue;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
@@ -8,12 +8,9 @@ import me.saiintbrisson.minecraft.command.command.Context;
 import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class CommandGamemode {
-
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "gamemode",
@@ -29,17 +26,17 @@ public class CommandGamemode {
         GameMode gameMode = GameMode.getByValue(mode);
 
         if (gameMode == null) {
-            player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
+            player.sendMessage(MensagensValue.get(MensagensValue::gamemode_invalid));
         } else if (player == target) {
-            player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
+            player.sendMessage(MensagensValue.get(MensagensValue::gamemode_same_player));
         } if (!player.hasPermission("core.gm.admin")) {
             player.sendMessage("Você não pode alterar o modo de jogo de outros jogadores.");
         } else if (target == null) {
             player.setGameMode(gameMode);
-            player.sendMessage(String.format(config.getString("Message.Gamemode_Change").replace("&", "§"), gameMode.name()));
+            player.sendMessage(String.format(MensagensValue.get(MensagensValue::gamemode_change), gameMode.name()));
         } else {
             target.setGameMode(gameMode);
-            target.sendMessage(String.format(config.getString("Message.Gamemode_Change_Player").replace("&", "§"), target.getName(), gameMode.name()));
+            target.sendMessage(String.format(MensagensValue.get(MensagensValue::gamemode_change_player), target.getName(), gameMode.name()));
         }
     }
 }

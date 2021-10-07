@@ -53,6 +53,18 @@
       <version>1.18.20</version>
       <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>com.github.alvaroogabriel.configuration-injector</groupId>
+          <artifactId>bukkit</artifactId>
+          <version>1.0.2</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.github.SaiintBrisson.command-framework</groupId>
+          <artifactId>shared</artifactId>
+          <version>1.0.0</version>
+          <scope>compile</scope>
+      </dependency>
   </dependencies>
   <properties>
     <maven.compiler.source>8</maven.compiler.source>

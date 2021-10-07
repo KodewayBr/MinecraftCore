@@ -1,14 +1,4 @@
-database:
-  type: 'sqlite'
-  mysql:
-    address: 'localhost:3306'
-    username: 'root'
-    password: ''
-    database: 'test'
-  sqlite:
-    file: 'database/database.db'
-
-Message:
+Mensagens:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
   Gamemode_Change_Player: '&aO modo de jogo de %s foi alterado para %s.'
   Gamemode_Invalid: '&cEste modo de jogo é inválido!'

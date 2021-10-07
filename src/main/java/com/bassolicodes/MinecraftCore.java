@@ -1,5 +1,6 @@
 package com.bassolicodes;
 
+import com.bassolicodes.configuration.ConfigurationRegistry;
 import lombok.val;
 import lombok.Getter;
 import com.bassolicodes.registry.CommandRegistry;
@@ -41,6 +42,8 @@ public class MinecraftCore extends JavaPlugin {
             textLogger.info("Carregando configurações do plugin!");
             config = new Config(this, "config.yml");
             saveDefaultConfig();
+
+            ConfigurationRegistry.of(this).setupConfiguration();
 
             loadConfigTiming.stop();
             textLogger.info(String.format("As informações da configuração fora lidas. (%s)", loadConfigTiming));

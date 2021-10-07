@@ -85,5 +85,11 @@
             <version>9561f20fd2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.alvaroogabriel</groupId>
+            <artifactId>configuration-injector</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
     </dependencies>
 </project>
